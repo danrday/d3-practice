@@ -9,3 +9,12 @@ svg.selectAll("rect")
           .attr("width", "50")
           .attr("x",function(d,i) { return 60*i; })
           .attr("y",function(d,i) {return 300 - (d*15)});
+
+let newX = 300;
+
+svg.selectAll("circle")
+      .data(dataArray)
+      .enter().append("circle")
+          .attr("cx", function(d,i) {newX +=(d*6)+(i*20); return newX})
+          .attr("cy", "100")
+          .attr("r",function(d,i) {return d*3});
